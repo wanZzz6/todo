@@ -5,9 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
 
-    <title>你的个人待办清单</title>
+    <title>
+        {% block 标题 %}
+            未命名
+        {% endblock %}
+    </title>
 
     <!-- Bootstrap core CSS -->
     <link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
@@ -40,10 +43,10 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
+          <li class="nav-item {% block 待办高亮 %}{% endblock %}">
             <a class="nav-link" href="{% url 'todolist:主页' %}">待办清单</a>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item {% block 关于高亮 %}{% endblock %}">
             <a class="nav-link" href="{% url 'todolist:关于' %}">关于本站</a>
           </li>
         </ul>
