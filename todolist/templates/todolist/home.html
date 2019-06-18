@@ -21,34 +21,40 @@
             </tr>
           </thead>
           <tbody class="no-underline">
+          {% for things in 清单 %}
+
             <tr>
               <th scope="row">1</th>
-              <td>小睡一下</td>
+              <td>{{ things.待办事项 }}</td>
               <td><a class="text-success" href="{% url 'todolist:编辑' %}">编辑</a></td>
               <td><a href="#">划掉</a></td>
               <td><a class="text-info" href="#">删除</a></td>
             </tr>
+          {% endfor %}
+
+
+
             <tr>
-              <th scope="row">2</th>
-              <td>看一会小说</td>
-              <td><a class="text-success" href="#">编辑</a></td>
-              <td><a href="#">划掉</a></td>
-              <td><a class="text-info" href="#">删除</a></td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>散散步</td>
-              <td><a class="text-success" href="#">编辑</a></td>
-              <td><a href="#">划掉</a></td>
-              <td><a class="text-info" href="#">删除</a></td>
-            </tr>
-            <tr class="table-dark">
-              <th class="text-dark" scope="row">4</th>
-              <td class="text-dark" id="line-through">去超市</td>
-              <td class="text-secondary">不可编辑</td>
-              <td><a class="text-info" href="#">撤销</a></td>
-              <td><a class="text-danger" href="#">删除</a></td>
-            </tr>
+{#              <th scope="row">2</th>#}
+{#              <td>看一会小说</td>#}
+{#              <td><a class="text-success" href="#">编辑</a></td>#}
+{#              <td><a href="#">划掉</a></td>#}
+{#              <td><a class="text-info" href="#">删除</a></td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#              <th scope="row">3</th>#}
+{#              <td>散散步</td>#}
+{#              <td><a class="text-success" href="#">编辑</a></td>#}
+{#              <td><a href="#">划掉</a></td>#}
+{#              <td><a class="text-info" href="#">删除</a></td>#}
+{#            </tr>#}
+{#            <tr class="table-dark">#}
+{#              <th class="text-dark" scope="row">4</th>#}
+{#              <td class="text-dark" id="line-through">去超市</td>#}
+{#              <td class="text-secondary">不可编辑</td>#}
+{#              <td><a class="text-info" href="#">撤销</a></td>#}
+{#              <td><a class="text-danger" href="#">删除</a></td>#}
+{#            </tr>#}
           </tbody>
         </table>
       </div>

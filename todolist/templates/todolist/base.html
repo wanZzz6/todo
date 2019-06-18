@@ -10,6 +10,9 @@
         {% block 标题 %}
             未命名
         {% endblock %}
+    {% block unknown %}
+
+    {% endblock %}
     </title>
 
     <!-- Bootstrap core CSS -->
@@ -50,8 +53,9 @@
             <a class="nav-link" href="{% url 'todolist:关于' %}">关于本站</a>
           </li>
         </ul>
-        <form class="form-inline mt-2 mt-md-0 col-7 justify-content-end">
-          <input class="form-control mr-sm-2" type="text" placeholder="待办事项" aria-label="Search">
+        <form class="form-inline mt-2 mt-md-0 col-7 justify-content-end" action="" method="post">
+            {% csrf_token %}
+          <input name="待办事项" class="form-control mr-sm-2" type="text" placeholder="待办事项" aria-label="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">添加</button>
         </form>
       </div>
