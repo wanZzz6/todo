@@ -4,12 +4,12 @@ from django.shortcuts import render
 
 
 def home(request):
-    return render(request, 'home.html')
+    return render(request, 'todolist/home.html')
 
 
 def edit(request):
-    return render(request, 'edit.html')
+    return render(request, 'todolist/edit.html')
 
 
 def about(request):
-    return render(request, 'about.html')
+    return render(request, 'todolist/about.html')

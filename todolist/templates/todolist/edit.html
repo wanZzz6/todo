@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
 
-    <title>关于本站</title>
+
+    <title>编辑待办事项</title>
 
     <!-- Bootstrap core CSS -->
     <link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
@@ -23,6 +23,10 @@
         nav input{
           width: 39%!important;
         }
+        #form-edit{
+           margin-left:8em;
+           margin-right:8em;
+        }
     </style>
   </head>
 
@@ -35,22 +39,29 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item ">
-            <a class="nav-link" href="{% url '主页' %}">待办清单</a>
+            <a class="nav-link" href="{% url 'todolist:主页' %}">待办清单</a>
           </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="{% url '关于' %}">关于本站</a>
+          <li class="nav-item ">
+            <a class="nav-link" href="{% url 'todolist:关于' %}">关于本站</a>
           </li>
         </ul>
         <form class="form-inline mt-2 mt-md-0 col-7 justify-content-end">
-          <input class="form-control mr-sm-2" type="text" placeholder="待办事项" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">添加</button>
+          <input class="form-control mr-sm-2 " type="text" placeholder="待办事项" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0 " type="submit">添加</button>
         </form>
       </div>
     </nav>
 
     <main role="main" class="container">
       <br>
-      <h4>一款小巧、简洁的待办清单工具，帮你规划日常事务。</h4>
+      <form id="form-edit">
+        <div class="form-group">
+          <label for="editTodo"></label>
+          <input class="form-control form-control-lg" id="editTodo" type="text" value="遛狗">
+          <small id="help" class="form-text text-muted">在这里编辑待办事项</small>
+        </div>
+        <button type="button" class="btn btn-primary btn-lg btn-block">提交</button>
+      </form>
     </main>
 
     <!-- Bootstrap core JavaScript

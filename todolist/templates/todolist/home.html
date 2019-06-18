@@ -41,10 +41,10 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="{% url '主页' %}">待办清单</a>
+            <a class="nav-link" href="{% url 'todolist:主页' %}">待办清单</a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="{% url '关于' %}">关于本站</a>
+            <a class="nav-link" href="{% url 'todolist:关于' %}">关于本站</a>
           </li>
         </ul>
         <form class="form-inline mt-2 mt-md-0 col-7 justify-content-end">
@@ -71,7 +71,7 @@
             <tr>
               <th scope="row">1</th>
               <td>小睡一下</td>
-              <td><a class="text-success" href="{% url '编辑' %}">编辑</a></td>
+              <td><a class="text-success" href="{% url 'todolist:编辑' %}">编辑</a></td>
               <td><a href="#">划掉</a></td>
               <td><a class="text-info" href="#">删除</a></td>
             </tr>
