@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
 lst = [
@@ -9,11 +9,9 @@ lst = [
 def home(request):
     global lst
 
-    print(request.method)
     if request.method == "POST":
         content = request.POST.get('待办事项')
-        print(content)
-        if not content and content.strip() == '':
+        if not content or content.strip() == '':
             return render(request, 'todolist/home.html',
                           {'清单': lst, '警告': '请输入内容'})
         else:
@@ -23,10 +21,18 @@ def home(request):
         return render(request, 'todolist/home.html', {'清单': lst})
 
 
-
 def edit(request):
     return render(request, 'todolist/edit.html')
 
 
 def about(request):
     return render(request, 'todolist/about.html')
+
+
+def delete(request, forloop_counter):
+    global lst
+
+    forloop_counter = int(forloop_counter) - 1
+    print(forloop_counter)
+    lst.pop(forloop_counter)
+    return redirect('todolist:主页')
