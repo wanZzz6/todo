@@ -6,7 +6,7 @@
 {% block 待办高亮 %}active{% endblock %}
 
 {% block 主体 %}
-
+    {{ 警告 }}
      <main role="main" class="container">
       <br>
       <div class="table-responsive">
@@ -24,7 +24,7 @@
           {% for things in 清单 %}
 
             <tr>
-              <th scope="row">1</th>
+              <th scope="row">{{ forloop.counter }}</th>
               <td>{{ things.待办事项 }}</td>
               <td><a class="text-success" href="{% url 'todolist:编辑' %}">编辑</a></td>
               <td><a href="#">划掉</a></td>

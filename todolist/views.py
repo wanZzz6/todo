@@ -13,8 +13,9 @@ def home(request):
     if request.method == "POST":
         content = request.POST.get('待办事项')
         print(content)
-        if content.strip() == '':
-            return render(request, 'todolist/home.html', {'清单': lst})
+        if not content and content.strip() == '':
+            return render(request, 'todolist/home.html',
+                          {'清单': lst, '警告': '请输入内容'})
         else:
             lst.append({'待办事项': content , '已完成': False})
             return render(request, 'todolist/home.html', {'清单': lst})
