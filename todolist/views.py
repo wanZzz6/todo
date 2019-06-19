@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 lst = [
-    {'待办事项': '吃饭', '已完成': False},
+    {'待办事项': '吃饭', '已完成': True},
     {'待办事项': '逛街', '已完成': False},
 ]
 
@@ -35,4 +35,5 @@ def delete(request, forloop_counter):
     forloop_counter = int(forloop_counter) - 1
     print(forloop_counter)
     lst.pop(forloop_counter)
+
     return redirect('todolist:主页')
