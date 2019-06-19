@@ -22,15 +22,15 @@
                 </thead>
                 <tbody class="no-underline">
                 {% for things in 清单 %}
-                    {% if things.已完成 %}
+                    {% if things.done %}
 
                         <tr class="table-dark">
                             <th class="text-dark" scope="row">{{ forloop.counter }}</th>
-                            <td class="text-dark" id="line-through">{{ things.待办事项 }}</td>
+                            <td class="text-dark" id="line-through">{{ things.thing }}</td>
                             <td class="text-secondary">不可编辑</td>
                             <td><a class="text-info" href="#">撤销</a></td>
                             <td>
-                                <form action="{% url 'todolist:删除' forloop.counter %}" method="post">
+                                <form action="{% url 'todolist:删除' things.id %}" method="post">
                                     {% csrf_token %}
                                     <button class="btn btn-danger btn-sm">删除</button>
                                 </form>
@@ -41,11 +41,11 @@
                     {% else %}
                         <tr>
                             <th scope="row">{{ forloop.counter }}</th>
-                            <td>{{ things.待办事项 }}</td>
-                            <td><a class="text-success" href="{% url 'todolist:编辑' forloop.counter %}">编辑</a></td>
+                            <td>{{ things.thing }}</td>
+                            <td><a class="text-success" href="{% url 'todolist:编辑' things.id %}">编辑</a></td>
                             <td><a href="#">划掉</a></td>
                             <td>
-                                <form action="{% url 'todolist:删除' forloop.counter %}" method="post">
+                                <form action="{% url 'todolist:删除' things.id %}" method="post">
                                     {% csrf_token %}
                                     <button class="btn btn-danger btn-sm">删除</button>
                                 </form>
