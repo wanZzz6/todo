@@ -21,8 +21,18 @@ def home(request):
         return render(request, 'todolist/home.html', {'清单': lst})
 
 
-def edit(request):
-    return render(request, 'todolist/edit.html')
+def edit(request, forloop_counter):
+    if request.method == "POST":
+        content = request.POST['已修改事项']
+        if not content or content.strip() == '':
+            return render(request, 'todolist/edit.html',
+                          {'警告': '请输入内容'})
+        else:
+            lst[forloop_counter-1]['待办事项'] = content
+            return redirect('todolist:主页')
+    else:
+        content = lst[forloop_counter -1]['待办事项']
+        return render(request, 'todolist/edit.html', {'待修改事项': content})
 
 
 def about(request):
